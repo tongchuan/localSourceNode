@@ -1,12 +1,28 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <modal ref="modal" modal="modal"></modal>
   </div>
 </template>
 
 <script>
+import modal from '@/components/modal2'
+
 export default {
-  name: 'app'
+  data () {
+    return {
+    }
+  },
+  name: 'app',
+  computed: {
+  },
+  props: {
+  },
+  components: {
+    modal
+  },
+  created () {
+  }
 }
 </script>
 
