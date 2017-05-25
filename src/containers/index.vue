@@ -47,6 +47,8 @@ export default {
       this.$store.dispatch({
         type: 'getUser', data: { name: '33333', age: 44, id: 3 }
       })
+    },
+    open () {
     }
   }
 }

@@ -20,10 +20,26 @@ export default new Router({
       component: News
     },
     {
+      path: '/news',
+      name: 'home',
+      component: News
+    },
+    {
       path: '/test',
       name: 'test',
       component: Test
     },
+    {
+      path: '/user/:userId',
+      name: 'user',
+      component: Test
+    },
+    {
+      path: '/usersd',
+      name: 'register',
+      component: Test
+    },
+
     {
       path: '*',
       name: 'Page404',

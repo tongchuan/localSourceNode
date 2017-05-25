@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <top />
     <router-view></router-view>
     <modal ref="modal" modal="modal"></modal>
   </div>
@@ -7,7 +8,7 @@
 
 <script>
 import modal from '@/components/modal2'
-
+import top from '@/components/Top'
 export default {
   data () {
     return {
@@ -19,7 +20,8 @@ export default {
   props: {
   },
   components: {
-    modal
+    modal,
+    top
   },
   created () {
   }
@@ -33,7 +35,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
 }
 body, html{
   padding: 0;
