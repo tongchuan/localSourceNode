@@ -7,7 +7,12 @@ export const USER_LIST = 'USER_LIST'
 const state = {
   userStore: {
     user: JSON.parse(localStorage.getItem('user')) || {},
-    userList: []
+    userList: [],
+    ListPage: {
+      page: 1,
+      rows: 10,
+      total: 0
+    }
   }
 }
 
@@ -28,10 +33,9 @@ const actions = {
     // localStorage.removeItem('user')
     commit(USER_SIGNOUT)
   },
-  [USER_LIST] ({commit}) {
-    userDB.userList().then((data) => {
-      console.log(data)
-      commit(USER_LIST, data.data)
+  [USER_LIST] ({commit, state}, data) {
+    userDB.userList(data).then((data) => {
+      commit(USER_LIST, data)
     })
   }
 }
@@ -55,7 +59,8 @@ const mutations = {
     // Object.keys(state).forEach(k => Vue.delete(state, k))
   },
   [USER_LIST] (state, data) {
-    state.userStore.userList = Object.assign([], data)
+    state.userStore.userList = Object.assign([], data.data)
+    state.userStore.ListPage = Object.assign({}, {page: data.page, rows: data.rows, total: data.total})
     Object.assign({}, state)
   }
 }

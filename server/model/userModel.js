@@ -27,6 +27,32 @@ module.exports.find = function (){
   return p;
 }
 
+module.exports.findPage = function (page,rows,username){
+  let p = new Promise(function(resolve,reject){
+    let query = User.find({})
+    query.skip((page-1)*rows)
+    query.limit(rows)
+    query.exec(function(err,doc){
+      if(err==null){
+        User.find(function(err,result){
+          if(err==null){
+            resolve({
+              data:doc,
+              total:result.length
+            })
+          }else{
+            reject(err)
+          }
+        });
+      }else{
+        reject(err)
+      }
+    })
+  })
+  return p;
+}
+
+
 module.exports.save = function(user){
   let p = new Promise(function(resolve,reject){
     let U = new User(user)

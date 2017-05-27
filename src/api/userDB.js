@@ -43,7 +43,7 @@ export default {
     return new Promise((resolve, reject) => {
       $.ajax({
         url: config.user.userList,
-        type: 'post',
+        type: 'get',
         contentType: 'application/x-www-form-urlencoded',
         data: data,
         dataType: 'json',

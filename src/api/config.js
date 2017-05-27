@@ -3,7 +3,7 @@ export default {
   user: {
     getUserItem: serverURL + 'mapping/add',
     updateUser: serverURL + 'ddd',
-    userList: 'http://localhost:8080/api/user/list'
+    userList: 'http://localhost:8080/api/user/listPage'
   },
   news: {
 

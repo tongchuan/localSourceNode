@@ -47,11 +47,13 @@ router.all('/list',function(req, res, next){
   })
 })
 
-router.all('/list3',function(req, res, next){
-  User.find().then((data)=>{
-    res.send({"code":10000,"msg":"","data":data})
+router.all('/listPage',function(req, res, next){
+  let page = req.query.page ? req.query.page : 1;
+  let rows = req.query.rows ? req.query.rows : 10;
+  User.findPage(Number(page),Number(rows)).then((data)=>{
+    res.send({"code":10000,"msg":"","data":data.data,"total":data.total,page:page,rows:rows})
   },(err)=>{
-    res.send({"code":10002221,"msg":err.toString(),"data":[]})
+    res.send({"code":10001,"msg":err.toString(),"data":[]})
   })
 })
 module.exports = router;
