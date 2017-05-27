@@ -11,6 +11,7 @@ const News = resolve => require(['@/containers/News'], resolve)
 const Test = resolve => require(['@/containers/Test'], resolve)
 const Page404 = resolve => require(['@/components/Page404'], resolve)
 const UserLogin = resolve => require(['@/containers/userLogin'], resolve)
+const UserList = resolve => require(['@/containers/UserList'], resolve)
 // const UserLogin = resolve => { require(['@/containers/userLogin'], resolve) }
 // const UserLogin = resolve => {
 //   // require.ensure 是 Webpack 的特殊语法，用来设置 code-split point
@@ -55,6 +56,11 @@ export default new Router({
       path: '/login',
       name: 'userlogin',
       component: UserLogin
+    },
+    {
+      path: '/list',
+      name: 'userlist',
+      component: UserList
     },
     {
       path: '*',

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-  <span>{{userdata}}</span>
+  <span>{{JSON.stringify(userdata)}}</span>
   <form class="login" v-on:submit.prevent="submit">
       <div class="line">  
         <div v-show="btn && !form.id">id不能为空</div>

@@ -38,5 +38,24 @@ export default {
         }
       })
     })
+  },
+  userList (data) {
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        url: config.user.userList,
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded',
+        data: data,
+        dataType: 'json',
+        beforeSend: () => {
+        },
+        success: (data) => {
+          resolve(data)
+        },
+        error: (err) => {
+          reject(err)
+        }
+      })
+    })
   }
 }

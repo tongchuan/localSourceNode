@@ -32,8 +32,8 @@ export default {
       user: 'user'
     }),
     count () {
-      console.log('333')
-      console.log(this.user)
+      // console.log('333')
+      // console.log(this.user)
       return this.$store.state.count
     },
     JSONuser () {

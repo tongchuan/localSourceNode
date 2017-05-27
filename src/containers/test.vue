@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     click () {
-      console.log('click')
+      // console.log('click')
     }
   },
   watch: {
@@ -69,7 +69,7 @@ export default {
       this.$off('kaishi')
     })
     this.$once('kaishi', function (type) {
-      console.log('水水' + type)
+      // console.log('水水' + type)
     })
     let that = this
     setInterval(function () {

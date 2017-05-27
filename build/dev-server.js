@@ -50,6 +50,40 @@ Object.keys(proxyTable).forEach(function (context) {
   app.use(proxyMiddleware(options.filter || context, options))
 })
 
+
+
+const fs = require('fs')
+const favicon = require('serve-favicon');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const resolve = file => path.resolve(__dirname,file);
+app.use(favicon(resolve('../static/favicon.ico')))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(cookieParser())
+app.use(logger('dev'));     //打印到控制台
+app.set('views', resolve('views'));
+app.set('view engine', 'jade');
+app.locals.pretty = true;
+let accessLog = fs.createWriteStream(resolve('../server/logs/access.log'), {flags : 'a'});
+app.use(logger('combined', {stream : accessLog}));      //打印到log日志
+app.all('/api/*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+    res.header("X-Powered-By",'3.2.1')
+    // res.header("Content-Type", "application/json;charset=utf-8");
+    next();
+});
+const routerApi = require('../server/router/api');
+routerApi(app);
+// app.use('/api/*',routerApi);
+
+
+
+
+
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())
 
@@ -63,6 +97,7 @@ app.use(hotMiddleware)
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
+
 
 var uri = 'http://localhost:' + port
 
