@@ -57,5 +57,43 @@ export default {
         }
       })
     })
+  },
+  userSave (data) {
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        url: config.user.userSave,
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded',
+        data: data,
+        dataType: 'json',
+        beforeSend: () => {
+        },
+        success: (data) => {
+          resolve(data)
+        },
+        error: (err) => {
+          reject(err)
+        }
+      })
+    })
+  },
+  userDel (data) {
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        url: config.user.userDel,
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded',
+        data: data,
+        dataType: 'json',
+        beforeSend: () => {
+        },
+        success: (data) => {
+          resolve(data)
+        },
+        error: (err) => {
+          reject(err)
+        }
+      })
+    })
   }
 }

@@ -7,6 +7,7 @@
           <th>Name</th>
           <th>Pwd</th>
           <th>email</th>
+          <th>操作</th>
         </tr>
       </thead>
       <tbody>
@@ -14,21 +15,23 @@
           <td>{{item.name}}</td>
           <td>{{item.pwd}}</td>
           <td>{{item.email}}</td>
+          <td><a v-on:click="del(item)" href="javascript:void(0)">删除</a></td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="3">
+          <td colspan="4">
             <div class="page-bar">
               <ul>
-                  <li v-if="cur>1"><a v-on:click="btnClick(index-1)">{{Number(userStore.ListPage.page)-1}}上一页</a></li>
+                  <li v-if="cur>1"><a v-on:click="btnClick(cur-1)">上一页</a></li>
                   <li v-if="cur==1"><a class="banclick">上一页</a></li>
                   <li v-for="index in indexs"  v-bind:class="{ 'active': cur == index}">
                       <a v-on:click="btnClick(index)">{{ index }}</a>
                   </li>
-                  <li v-if="cur!=all"><a v-on:click="btnClick(index+1)">{{Number(userStore.ListPage.page)+1}}下一页</a></li>
+                  <li v-if="cur!=all"><a v-on:click="btnClick(cur+1)">下一页</a></li>
                   <li v-if="cur == all"><a class="banclick">下一页</a></li>
                   <li><a>共<i>{{all}}</i>页</a></li>
+                  <li><a>当前<i>{{cur}}</i>页</a></li>
               </ul>
           </div>
           </td>
@@ -39,7 +42,7 @@
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { USER_LIST } from '../store/modules/userStore'
+import { USER_LIST, USER_DEL } from '../store/modules/userStore'
 export default {
   name: 'userList',
   data () {
@@ -50,35 +53,49 @@ export default {
     }
   },
   created () {
+    console.log(this.$route.params.page)
+    this.userStore.ListPage.page = this.$route.params.page ? Number(this.$route.params.page) : 1
     this.USER_LIST(this.userStore.ListPage)
   },
   computed: {
     ...mapGetters({
       userStore: 'userStore'
     }),
+    code () {
+      return this.userStore.userDelMsg.code
+    },
     all () {
-      return Math.ceil(this.userStore.ListPage.total / this.userStore.ListPage.rows)
+      return Math.ceil(Number(this.userStore.ListPage.total) / Number(this.userStore.ListPage.rows))
     },
     cur () {
-      return this.userStore.ListPage.page
+      return Number(this.userStore.ListPage.page) > 0 ? Number(this.userStore.ListPage.page) : 1
     },
     indexs: function () {
+      let count = 5
+      let jian = Math.floor(count / 2)
       var left = 1
       var right = this.all
       var ar = []
-      if (this.all >= 5) {
-        if (this.cur > 3 && this.cur < this.all - 2) {
-          left = this.cur - 2
-          right = this.cur + 2
+      if (this.cur === 1) {
+        left = 1
+        right = left + count
+      } else {
+        if ((this.cur - jian) < 1) {
+          left = 1
+          right = this.cur + jian + (this.cur - jian)
         } else {
-          if (this.cur <= 3) {
-            left = 1
-            right = 5
-          } else {
-            right = this.all
-            left = this.all - 4
-          }
+          left = this.cur - jian
+          right = this.cur + jian
         }
+      }
+      if (right > this.all) {
+        right = this.all
+      }
+      if (left > (right - count)) {
+        left = right - count
+      }
+      if (left < 1) {
+        left = 1
       }
       while (left <= right) {
         ar.push(left)
@@ -88,17 +105,49 @@ export default {
     }
   },
   methods: {
-    ...mapActions([USER_LIST]),
+    ...mapActions([USER_LIST, USER_DEL]),
     btnClick: function (data) { // 页码点击事件
+      console.log(data)
+      console.log(typeof data)
+      this.$router.replace({ path: '/list/' + data })
       this.USER_LIST(Object.assign(this.userStore.ListPage, {page: data}))
     },
     pageClick: function () {
       console.log('现在在' + this.cur + '页')
+    },
+    del: function (item) {
+      console.log(item)
+      this.USER_DEL({_id: item._id})
     }
   },
   watch: {
     cur: function (oldValue, newValue) {
       console.log(arguments)
+    },
+    code (newVal, oldVal) {
+      console.log('watch' + newVal, oldVal)
+      this.USER_LIST(Object.assign({}, this.userStore.ListPage))
+      if (newVal === 1) {
+        this.ModalShow({
+          title: '删除成功',
+          content: `<div>
+            <ul>
+            <li>删除成功</li>
+            </ul>
+          </div>`,
+          cancelValue: undefined,
+          confirmValue: undefined,
+          type: 2,
+          cancelFunc () {
+            console.log('cancelFunc')
+          },
+          confirmFunc () {
+            console.log('confirmFunc')
+            return false
+          }
+        })
+      }
+      this.userStore.userDelMsg.code = 0
     }
   }
 }

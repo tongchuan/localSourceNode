@@ -6,7 +6,8 @@
       <li><router-link to="/">首页</router-link></li>
       <li><router-link to="/news">新闻</router-link></li>
       <li><router-link to="/test">测试</router-link></li>
-      <li><router-link to="/list">列表</router-link></li>
+      <li><router-link to="/list/1">列表</router-link></li>
+      <li><router-link to="/save">添加</router-link></li>
       <div class="collapse navbar-collapse navbar-user">
         <p class="navbar-text navbar-left" v-if="userStore.user.id">{{loginsin}}您好，{{userStore.user.name}}, <a v-on:click="loginout" href="javascript:void(0)">退出</a></p>
         <p class="navbar-text navbar-left" v-else><router-link to="/login" class="navbar-link">登录</router-link></p>

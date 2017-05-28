@@ -1,9 +1,9 @@
 const Promise = require('promise');
 const User = require('../schema/userSchema');
 
-module.exports.remove = function(){
+module.exports.remove = function(data){
   let p = new Promise(function(resolve,reject){
-    User.remove(where,function(err){
+    User.remove(data,function(err){
       if(err===null){
         resolve();
       }else{
