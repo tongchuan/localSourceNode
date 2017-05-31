@@ -12,10 +12,11 @@ export function getCarousel (type = 1) {
       beforeSend: () => {
       },
       success: (data) => {
-        resolve({data: [{image: '../assets/slide1.png'}, {image: '../assets/slide1.png'}, {image: '../assets/slide1.png'}]})
+        resolve({data: [{image: '/static/slide1.png'}, {image: '/static/slide1.png'}, {image: '/static/slide1.png'}]})
       },
-      error: (err) => {
-        reject(err)
+      error: () => {
+        resolve({data: [{image: '/static/slide1.png'}, {image: '/static/slide1.png'}, {image: '/static/slide1.png'}]})
+        // reject(err)
       }
     })
   })
