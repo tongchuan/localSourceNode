@@ -3,7 +3,7 @@
     <!-- <top /> -->
     <div class="container">
     <ul class="nav navbar-default nav-pills">
-      <li><router-link to="/">首页</router-link></li>
+      <li><router-link to="/">首页12</router-link></li>
       <li><router-link to="/news">新闻</router-link></li>
       <li><router-link to="/test">测试</router-link></li>
       <li><router-link to="/list/1">列表</router-link></li>
