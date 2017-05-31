@@ -33,13 +33,9 @@ const getters = {
 
 const actions = {
   [USER_SIGNIN] ({commit}, user) {
-    // console.log('-----------')
-    // console.log(user)
     commit(USER_SIGNIN, user)
   },
   [USER_SIGNOUT] ({commit}) {
-    // console.log('============')
-    // localStorage.removeItem('user')
     commit(USER_SIGNOUT)
   },
   [USER_LIST] ({commit, state}, data) {

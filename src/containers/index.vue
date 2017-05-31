@@ -1,61 +1,35 @@
 <template>
   <div>
-    {{count}}
-    {{name}}
-    <span v-on:click='setCount' class="glyphicon glyphicon-list-alt"></span>
-    <span v-on:click='updateUser(param)' class="glyphicon glyphicon-list-alt"></span>
-    <Test v-bind:test='count' g='ddd' v-bind:open="open" />
-    <p>{{JSONuser}}</p>
+    <carousel />
   </div>
 </template>
 <script>
-import Test from '@/components/Test'
-import Modal from '@/components/modal'
-import { mapGetters, mapActions } from 'vuex'
+// import { mapGetters, mapActions } from 'vuex'
+// import { CAROUSEL_LIST } from '../store/modules/carouselStore'
+import carousel from '@/components/carousel'
 export default {
   name: 'Index',
-  components: {
-    Test,
-    Modal
-  },
   data () {
-    return {
-      name: 'index222222222222',
-      param: {
-        dd: '3333',
-        ss: 'ss'
-      }
-    }
+    return {}
+  },
+  created () {
+    // console.log(this)
+    // console.log(carouselStore)
+    // this.CAROUSEL_LIST(1)
+  },
+  components: {
+    carousel
   },
   computed: {
-    ...mapGetters({
-      user: 'user'
-    }),
-    count () {
-      // console.log('333')
-      // console.log(this.user)
-      return this.$store.state.count
-    },
-    JSONuser () {
-      return JSON.stringify(this.user)
-    }
+    // ...mapGetters({
+    //   carouselStore: 'carouselStore'
+    // })
   },
   methods: {
-    ...mapActions(['updateUser']),
-    setCount () {
-      /* this.$store.commit('increment') */
-      this.$store.dispatch({
-        type: 'getUser', data: { name: '33333', age: 44, id: 3 }
-      })
-    },
-    open () {
-    }
+    // ...mapActions([CAROUSEL_LIST])
   }
 }
 </script>
-<style scoped>
-
-body{
-  background: #F00;
-}
+<style>
+  
 </style>
