@@ -9,5 +9,8 @@ export default {
   },
   news: {
 
+  },
+  carouse: {
+    list: 'http://localhost:8080/api/carousel/find'
   }
 }

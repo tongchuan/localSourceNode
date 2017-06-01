@@ -14,7 +14,7 @@ const getters = {
 
 const actions = {
   [CAROUSEL_LIST] ({commit}, data) {
-    console.log(data)
+    // console.log(data)
     carouselDB.getCarousel(data).then((data) => {
       commit(CAROUSEL_LIST, data)
     })

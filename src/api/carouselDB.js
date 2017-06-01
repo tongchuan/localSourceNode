@@ -4,7 +4,7 @@ import config from './config'
 export function getCarousel (type = 1) {
   return new Promise((resolve, reject) => {
     $.ajax({
-      url: config.user.getUserItem,
+      url: config.carouse.list,
       type: 'post',
       contentType: 'application/x-www-form-urlencoded',
       data: {type: type},
@@ -12,11 +12,11 @@ export function getCarousel (type = 1) {
       beforeSend: () => {
       },
       success: (data) => {
-        resolve({data: [{image: '/static/slide1.png'}, {image: '/static/slide1.png'}, {image: '/static/slide1.png'}]})
+        resolve(data)
       },
-      error: () => {
-        resolve({data: [{image: '/static/slide1.png'}, {image: '/static/slide1.png'}, {image: '/static/slide1.png'}]})
-        // reject(err)
+      error: (err) => {
+        // resolve({data: [{image: '/static/slide1.png'}, {image: '/static/slide1.png'}, {image: '/static/slide1.png'}]})
+        reject(err)
       }
     })
   })
