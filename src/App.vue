@@ -1,6 +1,11 @@
 <template>
   <div id="app">
     <cheader />
+    <ul>
+            <li><router-link to="/">home</router-link></li>
+            <li><router-link to="/list">list</router-link></li>
+            <li><router-link to="/form">form</router-link></li>
+        </ul>
     <router-view></router-view>
     <cfooter />
   </div>
@@ -22,10 +27,9 @@ export default {
     cfooter
   },
   methods: {
-
   },
   created () {
-
+    // console.log('app')
   }
 }
 </script>

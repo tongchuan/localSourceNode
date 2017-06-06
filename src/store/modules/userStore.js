@@ -5,9 +5,11 @@ export const USER_SIGNOUT = 'USER_SIGNOUT' // 退出登录]
 export const USER_LIST = 'USER_LIST'
 export const USER_SAVE = 'USER_SAVE'
 export const USER_DEL = 'USER_DEL'
+// sessionStorage
+// localStorage
 const state = {
   userStore: {
-    user: JSON.parse(localStorage.getItem('user')) || {},
+    user: JSON.parse(sessionStorage.getItem('user')) || {},
     userList: [],
     ListPage: {
       page: 1,
@@ -59,7 +61,7 @@ const actions = {
 
 const mutations = {
   [USER_SIGNIN] (state, user) {
-    localStorage.setItem('user', JSON.stringify(user))
+    sessionStorage.setItem('user', JSON.stringify(user))
     // console.log(JSON.stringify(user))
     state.userStore.user = user
     // sessionStorage.setItem('user', JSON.stringify(user))
@@ -67,7 +69,7 @@ const mutations = {
   },
   [USER_SIGNOUT] (state) {
     // sessionStorage.removeItem('user')
-    localStorage.removeItem('user')
+    sessionStorage.removeItem('user')
     // console.log(state.userStore)
     // console.log(Object.keys(state.userStore))
     state.userStore.user = {}
