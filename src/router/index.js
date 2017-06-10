@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/containers/Index'
+import Index from '@/containers/index'
 const NotFound = resolve => require(['@/containers/notFound'], resolve)
 const List = resolve => require(['@/containers/list'], resolve)
 const Form = resolve => require(['@/containers/form'], resolve)
