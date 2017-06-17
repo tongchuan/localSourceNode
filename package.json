@@ -30,6 +30,7 @@
     "promise": "^7.1.1",
     "serve-favicon": "^2.4.3",
     "style-loader": "^0.17.0",
+    "vee-validate": "^2.0.0-rc.5",
     "vue": "^2.2.6",
     "vue-devtools": "^3.1.2",
     "vue-i18n": "^7.0.1",

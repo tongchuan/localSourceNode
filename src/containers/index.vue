@@ -1,9 +1,9 @@
 <template>
   <div>
-    <carousel />
+    <!-- <carousel />
     <input type="text" v-model="msg" value="" name="">
     <badge name="Messages" v-bind:msg="msg" my-message="zhang" />
-    <page v-bind:total="total" v-bind:rows="rows" v-bind:page="page" v-bind:set-page="setPage" />
+    <page v-bind:total="total" v-bind:rows -->="rows" v-bind:page="page" v-bind:set-page="setPage" />
   </div>
 </template>
 <script>

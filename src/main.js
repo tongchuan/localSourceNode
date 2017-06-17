@@ -6,8 +6,8 @@ import App from './App'
 import router from './router'
 import $ from 'jquery'
 import iView from 'iview'
-import Vuerify from 'vuerify'
-
+// import Vuerify from 'vuerify'
+import VeeValidate from 'vee-validate'
 // import VueI18n from 'vue-i18n'
 import 'iview/dist/styles/iview.css'
 // import zhLocale from 'iview/src/locale/lang/zh-CN'
@@ -22,7 +22,36 @@ Vue.config.productionTip = false
 // Vue.use(Modal)
 // Vue.use(VueI18n)
 Vue.use(iView)
-Vue.use(Vuerify)
+// Vue.use(Vuerify)
+
+// const config = {
+//   errorBagName: 'errors', // change if property conflicts.
+//   fieldsBagName: 'fields',
+//   delay: 0,
+//   locale: 'zh_CN',
+//   dictionary: null,
+//   strict: true,
+//   enableAutoClasses: false,
+//   classNames: {
+//     touched: 'touched', // the control has been blurred
+//     untouched: 'untouched', // the control hasn't been blurred
+//     valid: 'valid', // model is valid
+//     invalid: 'invalid', // model is invalid
+//     pristine: 'pristine', // control has not been interacted with
+//     dirty: 'dirty' // control has been interacted with
+//   },
+//   events: 'input|blur',
+//   inject: true
+// }
+// VeeValidate.extend('mobile', {
+//   messages: {
+//     zh_CN: field => field + '必须是11位手机号码'
+//   },
+//   validate: value => {
+//     return value.length === 11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/.test(value)
+//   }
+// })
+Vue.use(VeeValidate)
 Vue.config.lang = 'zh-CN'
 // Vue.locale('zh-CN', zhLocale)
 // Vue.locale('en-US', enLocale)
