@@ -8,7 +8,7 @@
     <div class="nav-left-list">
       <ul>
         <li v-for="item in navList" v-bind:class="{'active': item.selected}"  v-on:click="updateSelected(item)">
-          <router-link v-bind:to="item.link"><span v-bind:class="item.icon + ' glyphicon'" v-text="item.name"></span></router-link>
+          <router-link v-bind:to="item.link"><span v-if="item.badge>0" class="badge" v-text="item.badge"></span><span v-bind:class="item.icon + ' glyphicon'" v-text="item.name"></span></router-link>
         </li>
       </ul>
     </div>
@@ -26,9 +26,9 @@ export default {
   data () {
     return {
       navList: [
-        {name: '开始开始开始', icon: 'glyphicon-asterisk', link: '/vue/page1', selected: true},
-        {name: '开始开始开始', icon: 'glyphicon-asterisk', link: '/vue/page2', selected: false},
-        {name: '开始开始开始', icon: 'glyphicon-asterisk', link: '/vue/page1', selected: false}
+        {name: '开始开始开始', icon: 'glyphicon-asterisk', link: '/vue/page1', badge: 50, selected: true},
+        {name: '开始开始开始', icon: 'glyphicon-asterisk', link: '/vue/page2', badge: 0, selected: false},
+        {name: '开始开始开始', icon: 'glyphicon-asterisk', link: '/vue/page1', badge: 50, selected: false}
       ]
     }
   },
