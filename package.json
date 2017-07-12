@@ -23,6 +23,7 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "iview": "^2.0.0-rc.16",
     "jquery": "^3.2.1",
+    "less": "^2.7.2",
     "less-loader": "^4.0.3",
     "mongoose": "^4.10.2",
     "morgan": "^1.8.2",

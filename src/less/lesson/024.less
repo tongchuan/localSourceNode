@@ -1,0 +1,20 @@
+// Namespaces
+
+#outer {
+  .inner{
+    color: red;
+  }
+  color: green;
+}
+.c{
+  #outer > .inner;
+}
+
+#my-library{
+  .my-mixin(){
+    color: black;
+  }
+}
+.colass {
+  #my-library > .my-mixin();
+}

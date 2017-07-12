@@ -1,14 +1,22 @@
 <template>
   <div id="app">
+  <!-- less start -->
+<!--   <div id="header">
+    color: #6c94be
+  </div> -->
+  <!-- less end -->
+
+
+
     <!-- <cheader /> -->
-    <div class="container bg">
+    <!-- <div class="container bg">
       <ul class="navbar">
         <router-link to="/vue">vue</router-link>
         <router-link to="/">home</router-link>
         <router-link to="/list">list</router-link>
         <router-link to="/form">form</router-link>
         </ul>
-    </div>
+    </div> -->
 
     <router-view></router-view>
     <!-- <cfooter /> -->

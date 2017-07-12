@@ -1,0 +1,36 @@
+// Reducing CSS Size
+li{
+  font-size: 10px;
+  &>span{
+    width: 909px;
+  }
+}
+li.list > a{
+  color: #0f0;
+}
+button.list-style{
+  &:extend(li.list>a);
+}
+// .my-line-block{
+//   display: inline-block;
+//   font-size: 0;
+// }
+// .thing1{
+//   &:extend(.my-line-block);
+// }
+// .thing2{
+//   &:extend(.my-line-block);
+// }
+/*
+.my-line-block(){
+  display: inline-block;
+  font-size: 0;
+}
+.thing1 {
+  .my-line-block;
+}
+.thing2 {
+  .my-line-block;
+}
+*/
+

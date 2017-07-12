@@ -1,0 +1,24 @@
+// Lazy Loading
+.lazy-eval{
+width: @var;
+}
+@var: @a;
+@a: 9%;
+
+.lazy-eval-scope{
+  width: @var2;
+  @a1: 9%;
+}
+@var2: @a1;
+@a1 :100%;
+
+@vars 0;
+.class{
+  @vars: 1;
+  .class {
+    @vars: 2;
+    three: @vars;
+    @vars: 3;
+  }
+  one: @vars;
+}

@@ -1,9 +1,11 @@
 <template>
   <div>
+    <upimage />
     <!-- <carousel />
     <input type="text" v-model="msg" value="" name="">
     <badge name="Messages" v-bind:msg="msg" my-message="zhang" />
-    <page v-bind:total="total" v-bind:rows -->="rows" v-bind:page="page" v-bind:set-page="setPage" />
+    <page v-bind:total="total" v-bind:rows ="rows" v-bind:page="page" v-bind:set-page="setPage" />-->
+    <!-- <pagetwo v-bind:total="total"  v-bind:rows ="rows" v-bind:page="page" v-bind:set-page="setPage" /> -->
   </div>
 </template>
 <script>
@@ -12,17 +14,21 @@
 import carousel from '@/components/carousel'
 import badge from '@/components/badge'
 import page from '@/components/page'
+import pagetwo from '@/components/page2'
+import upimage from '@/components/upimage'
 export default {
   name: 'Index',
   data () {
     return {
       msg: '',
-      total: 100, // 一共多少条
-      rows: 9, // 一页几条
+      rows: 10, // 一页几条
       page: 1 // 当前页
     }
   },
   created () {
+    console.log(this.isEmail('3333@ss.cm'))
+    console.log(this.isCard('1306231981220301x'))
+    // console.log(Vue)
     // console.log(this)
     // console.log(carouselStore)
     // this.CAROUSEL_LIST(1)
@@ -30,9 +36,14 @@ export default {
   components: {
     carousel,
     badge,
-    page
+    page,
+    pagetwo,
+    upimage
   },
   computed: {
+    total () {
+      return 90
+    }
     // ...mapGetters({
     //   carouselStore: 'carouselStore'
     // })

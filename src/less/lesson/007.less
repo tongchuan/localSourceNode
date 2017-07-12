@@ -1,0 +1,44 @@
+// Scope
+/*
+Scope in Less is very similar to that of programming languages. Variables and mixins are first looked for locally, and if they aren't found, the compiler will look in the parent scope, and so on.
+*/
+
+@var: red;
+#page1 {
+  @var: green;
+  #header{
+    color: @var;
+  }
+}
+#page2 {
+  #header{
+    color: @var;
+  }
+  @var: green;
+}
+#page {
+  a{
+    color: @var;
+    span {
+      @var: white;
+      dd{
+        color: @var;
+      }
+    }
+  }
+}
+
+/*
+#page1 #header {
+  color: green;
+}
+#page2 #header {
+  color: green;
+}
+#page a {
+  color: red;
+}
+#page a span dd {
+  color: white;
+}
+*/

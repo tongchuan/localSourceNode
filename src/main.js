@@ -15,13 +15,20 @@ import 'iview/dist/styles/iview.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 // import 'element-ui/lib/theme-default/index.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
+import './less/main'
+import Verify from '@/util/verify'
 // import Modal from './util/modal'
 import store from './store'
 Vue.config.productionTip = false
 // Vue.use(ElementUI)
 // Vue.use(Modal)
 // Vue.use(VueI18n)
+// console.log()
 Vue.use(iView)
+
+Vue.use(Verify)
+// Vue.$IsEmail('444444$IsEmail')
+
 // Vue.use(Vuerify)
 
 // const config = {
@@ -73,7 +80,7 @@ router.beforeEach((to, form, next) => {
   // console.log([to, form, next])
   next()
 })
-console.log(router)
+// console.log(router)
 /* eslint-disable no-new */
 new Vue({
   store,
