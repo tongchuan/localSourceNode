@@ -8,6 +8,7 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     // assetsPublicPath: '/',
+    // assetsPublicPath: 'http://cms2.commd.io/',
     assetsPublicPath: 'http://127.0.0.1:88/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as

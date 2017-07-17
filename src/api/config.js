@@ -12,5 +12,8 @@ export default {
   },
   carouse: {
     list: 'http://localhost:8080/api/carousel/find'
+  },
+  img: {
+    upimg: 'http://127.0.0.1:88/user/upi'
   }
 }

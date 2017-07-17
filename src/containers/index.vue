@@ -1,6 +1,17 @@
 <template>
   <div>
-    <upimage />
+    <upimg upimgtype="up1" v-on:getImageData="imageData" />
+    <upimg upimgtype="up2" v-on:getImageData="imageData" />
+    <upimg upimgtype="up3" v-on:getImageData="imageData" />
+    <!-- <form method="post" ref="upimageForm" action="http://127.0.0.1:88/user/upi" v-bind:target="ifameId" enctype="multipart/form-data">
+        <a href="javascript:void(0)" v-on:click="addPic">添加图片 </a>
+        <input type="file" @change="onFileChange" multiple style="display: none;">
+        <input type="file" name="file" ref="upimageFile" @change="onFileChange" style="display: none;">
+        <input type="submit" @click="submitupimg" ref="upimageSubmit" name="tijiao" style="display: none;">
+    </form>
+    <iframe v-bind:id="ifameId" @load="loaded" v-bind:name="ifameId" style="display:none"></iframe>
+    <div ref="imgdata"></div> -->
+    <!-- <upimage /> -->
     <!-- <carousel />
     <input type="text" v-model="msg" value="" name="">
     <badge name="Messages" v-bind:msg="msg" my-message="zhang" />
@@ -9,6 +20,7 @@
   </div>
 </template>
 <script>
+// import $ from 'jquery'
 // import { mapGetters, mapActions } from 'vuex'
 // import { CAROUSEL_LIST } from '../store/modules/carouselStore'
 import carousel from '@/components/carousel'
@@ -16,10 +28,13 @@ import badge from '@/components/badge'
 import page from '@/components/page'
 import pagetwo from '@/components/page2'
 import upimage from '@/components/upimage'
+import upimg from '@/components/upimg'
 export default {
   name: 'Index',
   data () {
     return {
+      ifameId: 'imag' + Math.random(),
+      images: [],
       msg: '',
       rows: 10, // 一页几条
       page: 1 // 当前页
@@ -33,12 +48,15 @@ export default {
     // console.log(carouselStore)
     // this.CAROUSEL_LIST(1)
   },
+  compiled () {
+  },
   components: {
     carousel,
     badge,
     page,
     pagetwo,
-    upimage
+    upimage,
+    upimg
   },
   computed: {
     total () {
@@ -49,6 +67,54 @@ export default {
     // })
   },
   methods: {
+    imageData (type, data) {
+      console.log(type, data)
+    },
+    // addPic (e) {
+    //   console.log()
+    //   e.preventDefault()
+    //   $(this.$refs.upimageFile).trigger('click')
+    //   return false
+    // },
+    // onFileChange (e) {
+    //   var files = e.target.files || e.dataTransfer.files
+    //   if (!files.length) {
+    //     return
+    //   }
+    //   $(this.$refs.upimageSubmit).trigger('click')
+    //   // $('#tijiao').trigger('click')
+    // },
+    // loaded () {
+    //   let that = this
+    //   console.log(window.frames[that.ifameId].document.body)
+    //   let data = window.frames[that.ifameId].document.body.innerHTML
+    //   that.$refs.upimageFile.value = ''
+    //   data = data.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    //   if (data === "") {
+    //     return
+    //   }
+    //   $(that.$refs.imgdata).html(JSON.parse(data).image)
+    // },
+    // submitupimg () {
+    //   // let that = this
+    //   // console.log(window.frames[that.ifameId])
+    //   // console.log($(window.frames[that.ifameId]))
+    //   // console.log($('#' + that.ifameId))
+    //   // $(window.frames[that.ifameId]).unbind('load').bind('load', () => {
+    //   //   alert('')
+    //   //   // console.log(e)
+    //   //   // console.log(window.frames[that.ifameId].document)
+    //   //   let data = window.frames[that.ifameId].document.body.innerHTML
+    //   //   // console.log(data)
+    //   //   that.$refs.upimageFile.value = ''
+    //   //   data = data.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    //   //   // console.log(data)
+    //   //   $(that.$refs.imgdata).html(data)
+    //   //   window.frames[that.ifameId].document.body.innerHTML = ''
+    //   //   // var data = $(window.frames['exec_target'].document.body).html()
+    //   //   // console.log(data)
+    //   // })
+    // },
     setPage (page) {
       console.log('page' + page)
       console.log(this.$router)
