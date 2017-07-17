@@ -17,6 +17,16 @@ export default {
         // 逻辑...
       }
     })
+    Vue.prototype.formatTime = (value) => {
+      let date = new Date(value)
+      let h = date.getHours()
+      let m = date.getMinutes()
+      let s = date.getSeconds()
+      h = h < 10 ? '0' + h : h
+      m = m < 10 ? '0' + m : m
+      s = s < 10 ? '0' + s : s
+      return h + ':' + m + ':' + s
+    }
     // 验证邮箱
     Vue.prototype.isEmail = (value) => {
       let reg = new RegExp('^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+')

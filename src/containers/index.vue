@@ -2,13 +2,13 @@
   <div>
   <div class="container" style="min-width:960px">
     <!-- <banner v-bind:data="bannerData" /> -->
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-xs-4" style="height:300px">
         <focusmap v-bind:focusList="focusList" />
       </div>
-    </div>
+    </div> -->
   </div>
-  
+  <iviewtime />
     <!-- <upimg upimgtype="up1" v-on:getImageData="imageData" />
     <upimg upimgtype="up2" v-on:getImageData="imageData" />
     <upimg upimgtype="up3" v-on:getImageData="imageData" /> -->
@@ -40,10 +40,12 @@ import upimage from '@/components/upimage'
 import upimg from '@/components/upimg'
 import banner from '@/components/banner'
 import focusmap from '@/components/focusmap'
+import iviewtime from '@/components/iviewtime'
 export default {
   name: 'Index',
   data () {
     return {
+
       ifameId: 'imag' + Math.random(),
       // focusList: [
       //   {name: '11', title: '焦点图代码 焦点图代码,JS焦点图代码,焦点图切换代码,焦点图片焦点图代码 焦点图代码,JS焦点图代码,焦点图切换代码,焦点图', image: '/static/images/b1.jpg', link: '/static/images/b1.jpg'},
@@ -83,7 +85,8 @@ export default {
     upimage,
     upimg,
     banner,
-    focusmap
+    focusmap,
+    iviewtime
   },
   computed: {
     bannerData () {
