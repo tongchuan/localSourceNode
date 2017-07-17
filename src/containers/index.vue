@@ -1,8 +1,12 @@
 <template>
   <div>
-    <upimg upimgtype="up1" v-on:getImageData="imageData" />
+  <div class="container" style="min-width:960px">
+    <banner v-bind:data="bannerData" />
+  </div>
+  
+    <!-- <upimg upimgtype="up1" v-on:getImageData="imageData" />
     <upimg upimgtype="up2" v-on:getImageData="imageData" />
-    <upimg upimgtype="up3" v-on:getImageData="imageData" />
+    <upimg upimgtype="up3" v-on:getImageData="imageData" /> -->
     <!-- <form method="post" ref="upimageForm" action="http://127.0.0.1:88/user/upi" v-bind:target="ifameId" enctype="multipart/form-data">
         <a href="javascript:void(0)" v-on:click="addPic">添加图片 </a>
         <input type="file" @change="onFileChange" multiple style="display: none;">
@@ -29,6 +33,7 @@ import page from '@/components/page'
 import pagetwo from '@/components/page2'
 import upimage from '@/components/upimage'
 import upimg from '@/components/upimg'
+import banner from '@/components/banner'
 export default {
   name: 'Index',
   data () {
@@ -56,9 +61,22 @@ export default {
     page,
     pagetwo,
     upimage,
-    upimg
+    upimg,
+    banner
   },
   computed: {
+    bannerData () {
+      let data = []
+      for (let i = 0; i < 5; i++) {
+        data.push({
+          image: '/static/images/1.png',
+          title: '巨幅山水画图片',
+          content: '昵图网所有作品均是用户自行上传分享并拥有版权或使用权，仅供网友学习交流，未经上传用户书面授权',
+          href: ''
+        })
+      }
+      return data
+    },
     total () {
       return 90
     }
