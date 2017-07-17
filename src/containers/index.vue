@@ -8,7 +8,8 @@
       </div>
     </div> -->
   </div>
-  <iviewtime />
+  <imged />
+  <!-- <iviewtime /> -->
     <!-- <upimg upimgtype="up1" v-on:getImageData="imageData" />
     <upimg upimgtype="up2" v-on:getImageData="imageData" />
     <upimg upimgtype="up3" v-on:getImageData="imageData" /> -->
@@ -41,6 +42,7 @@ import upimg from '@/components/upimg'
 import banner from '@/components/banner'
 import focusmap from '@/components/focusmap'
 import iviewtime from '@/components/iviewtime'
+import imged from '@/components/img'
 export default {
   name: 'Index',
   data () {
@@ -86,7 +88,8 @@ export default {
     upimg,
     banner,
     focusmap,
-    iviewtime
+    iviewtime,
+    imged
   },
   computed: {
     bannerData () {
