@@ -9,7 +9,7 @@ export const USER_DEL = 'USER_DEL'
 // localStorage
 const state = {
   userStore: {
-    user: JSON.parse(sessionStorage.getItem('user')) || {},
+    user: {}, // JSON.parse(sessionStorage.getItem('user')) || {},
     userList: [],
     ListPage: {
       page: 1,

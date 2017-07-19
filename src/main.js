@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 // import ElementUI from 'element-ui'
 import router from './router'
-import $ from 'jquery'
+// import $ from 'jquery'
 import iView from 'iview'
 // import Vuerify from 'vuerify'
 import VeeValidate from 'vee-validate'
@@ -64,19 +64,20 @@ Vue.config.lang = 'zh-CN'
 // Vue.locale('en-US', enLocale)
 
 router.beforeEach((to, form, next) => {
-  $('#app')
+  store.dispatch('USER_SAVE', {name: 'zhang', age: 111})
+  // state.userStore.
+  // console.log(store.state.userStore)
+  // $('#app')
   // $.ajax({
   //   url: 'http://baidu.com',
   //   data: {name: 'zhangtongchuan'},
   //   success: function () {
-
   //   },
   //   error: function () {
-
   //   }
   // })
   // console.log(store.carouselStore)
-  // // console.log(store._actions['USER_LIST']())
+  // console.log(store._actions['USER_LIST']())
   // console.log([to, form, next])
   next()
 })

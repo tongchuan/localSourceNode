@@ -39,9 +39,13 @@ export default {
     cfooter
   },
   methods: {
+    userShow (data) {
+      console.log(data)
+    }
   },
   created () {
-    // console.log('app')
+    console.log('app')
+    console.log(this)
   }
 }
 </script>

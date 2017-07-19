@@ -1,5 +1,7 @@
 <template>
   <div>
+  <ceshi1 />
+  <ceshi2 />
   <div class="container" style="min-width:960px">
     <!-- <banner v-bind:data="bannerData" /> -->
     <!-- <div class="row">
@@ -8,7 +10,7 @@
       </div>
     </div> -->
   </div>
-  <imged />
+  <!-- <imged /> -->
   <!-- <iviewtime /> -->
     <!-- <upimg upimgtype="up1" v-on:getImageData="imageData" />
     <upimg upimgtype="up2" v-on:getImageData="imageData" />
@@ -43,6 +45,8 @@ import banner from '@/components/banner'
 import focusmap from '@/components/focusmap'
 import iviewtime from '@/components/iviewtime'
 import imged from '@/components/img'
+import ceshi1 from '@/components/ceshi1'
+import ceshi2 from '@/components/ceshi2'
 export default {
   name: 'Index',
   data () {
@@ -68,8 +72,8 @@ export default {
     }
   },
   created () {
-    console.log(this.isEmail('3333@ss.cm'))
-    console.log(this.isCard('1306231981220301x'))
+    // console.log(this.isEmail('3333@ss.cm'))
+    // console.log(this.isCard('1306231981220301x'))
     let that = this
     setInterval(function () {
       that.focusLists()
@@ -89,7 +93,9 @@ export default {
     banner,
     focusmap,
     iviewtime,
-    imged
+    imged,
+    ceshi1,
+    ceshi2
   },
   computed: {
     bannerData () {
