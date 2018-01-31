@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>red</title>
+  <link rel="stylesheet" href="/style/main.css">
+  <link rel="stylesheet" href="/style/red.css">
+</head>
+<body>
+    <div>
+        <ul>
+          <li><a href="/">index</a></li>
+          <li><a href="/news">news</a></li>
+        </ul>
+      </div>
+      {% block header %} <h3>Unnamed</h3> {% endblock %}
+      {% block body %} <div>No body</div> {% endblock %}
+      {% block footer %} <div>copyright</div> {% endblock %}
+</body>
+</html>

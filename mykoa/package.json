@@ -1,0 +1,27 @@
+{
+  "name": "mykoa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "NODE_ENV=development node run.js",
+    "run": "NODE_ENV=production node run.js"
+  },
+  "author": "tongchuanxing@163.com",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "date-format": "^1.2.0",
+    "dateutil": "^0.1.0",
+    "keygrip": "^1.0.2",
+    "koa": "^2.4.1",
+    "koa-favicon": "^2.0.0",
+    "koa-router": "^7.3.0",
+    "koa-static": "^4.0.2",
+    "koa-view": "^2.1.1",
+    "log4js": "^2.5.2",
+    "mysql": "^2.15.0",
+    "promise": "^8.0.1"
+  }
+}
