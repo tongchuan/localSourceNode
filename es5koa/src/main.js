@@ -1,10 +1,11 @@
 import "babel-polyfill"
 import 'babel-register'
-
+import path from 'path'
 import Koa from 'koa'
 import Router from 'koa-router'
 import View from 'koa-view'
 import router from './router'
+
 let app = new Koa()
 app.env = process.env.NODE_ENV || 'development'; 
 // let router = new Router()
@@ -17,7 +18,7 @@ app.env = process.env.NODE_ENV || 'development';
 // })
 // 
 console.log(app.env)
-app.use(View(__dirname + '/views'));
+app.use(View(path.join(__dirname,'views')));
 app.use(router.routes())
 app.use(async(ctx, next) => {
 	ctx.body = 'Hello World!'

@@ -12,6 +12,10 @@ require('babel-polyfill');
 
 require('babel-register');
 
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
 var _koa = require('koa');
 
 var _koa2 = _interopRequireDefault(_koa);
@@ -42,7 +46,7 @@ app.env = process.env.NODE_ENV || 'development';
 // })
 // 
 console.log(app.env);
-app.use((0, _koaView2.default)(__dirname + '/views'));
+app.use((0, _koaView2.default)(_path2.default.join(__dirname, 'views')));
 app.use(_router2.default.routes());
 app.use(function () {
 	var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(ctx, next) {
