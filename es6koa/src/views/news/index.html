@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>news index</title>
-	<link rel="stylesheet" type="text/css" href="/style/main.css">
-	<link rel="stylesheet" type="text/css" href="/style/default.css">
-</head>
-<body>
-<h1>news Index</h1>
-</body>
-</html>
+{% extends 'layout/default.html'%}
+
+{% block header %}
+<h1>news</h1>
+{% endblock %}
+
+{% block body %}
+	<li>{{code}}</li>
+	<li>{{message}}</li>
+	<li>{{status}}</li>
+  {% for item in data%}
+  <li><a href="/news/details/{{item.id}}"> {{item.id}} {{item.title}} </a></li>
+  {% endfor %}
+{% endblock %}

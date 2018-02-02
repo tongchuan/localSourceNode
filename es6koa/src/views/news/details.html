@@ -1,9 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>news details</title>
-</head>
-<body>
+{% extends 'layout/default.html'%}
+
+{% block header %}
 <h1>news details</h1>
-</body>
-</html>
+{% endblock %}
+
+{% block body %}
+	<li>{{code}}</li>
+	<li>{{message}}</li>
+	<li>{{status}}</li>
+	<li>id:{{data.id}}</li>
+	<li>title:{{data.title}}</li>
+	<li>content:{{data.content}}</li>
+	<li>posted_on:{{data.posted_on}}</li>
+{% endblock %}
