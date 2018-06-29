@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <script src="/socket/socket.io.js"></script>
+    <script>
+      // var socket = io.connect(window.location.origin 'http://localhost:3000');
+      var socket = io.connect(window.location.origin);
+      socket.on('news', function (data) {
+        // alert("OK")
+        console.log(JSON.stringify(data));
+        socket.emit('my other event', { my: 'data' });
+      });
+    </script>
+  kaishi
+</body>
+</html>
