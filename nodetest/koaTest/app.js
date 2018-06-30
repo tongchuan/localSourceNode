@@ -81,9 +81,10 @@ let port = 3000;
 let host = 'localhost'
 let exclusive = false
 const hostData =  Object.values(os.networkInterfaces())
-hostData.forEach((item)=>{
-  host = item[0].address
-})
+// console.log(hostData)
+// hostData.forEach((item)=>{
+//   host = item[0].address
+// })
 
 app.context.address = {host, port, exclusive}
 
