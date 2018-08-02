@@ -9,13 +9,19 @@
 <body>
     <script src="/socket/socket.io.js"></script>
     <script>
+      window.socket = io.connect(window.location.origin);
+    </script>
+    <script src="/js/os.js"></script>
+    <script>
       // var socket = io.connect(window.location.origin 'http://localhost:3000');
       var socket = io.connect(window.location.origin);
-      socket.on('news', function (data) {
-        // alert("OK")
-        console.log(JSON.stringify(data));
-        socket.emit('my other event', { my: 'data' });
-      });
+      
+
+      // socket.on('news', function (data) {
+      //   // alert("OK")
+      //   console.log(JSON.stringify(data));
+      //   socket.emit('my other event', { my: 'data' });
+      // });
     </script>
   kaishi
 </body>
