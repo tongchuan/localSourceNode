@@ -1,0 +1,56 @@
+// const addon = require('./addon');
+// console.log(addon.hello());
+
+// const net = require('net');
+
+// const server = net.createServer((socket) => {
+//   socket.end('goodbye\n');
+// }).on('error', (err) => {
+//   // handle errors here
+//   throw err;
+// });
+
+// // grab an arbitrary unused port.
+// server.listen((a) => {
+//   console.log('opened server on', server.address());
+// });
+
+
+var net=require("net");
+
+/**
+ * 创建server
+ */
+function t1(){
+    var server=net.createServer(function(socket){
+        //socket.end("good bye!");
+        socket.write("hello,i'm server!");
+        console.log("client connected! %j:%j",socket.remoteAddress,socket.remotePort);
+        socket.on("data",function(data){
+            console.log("recived from client:",data.toString());
+        })
+        socket.on("close",function(had_error){
+            if(!had_error){
+                console.log("client closed success! %j:%j",socket.remoteAddress,socket.remotePort);
+            }
+            else{
+                console.log("client close error! %j:%j",socket.remoteAddress,socket.remotePort);
+            }
+        })
+        socket.on("error",function(err){
+            console.log("!!!err!!!",err);
+        });
+        //setTimeout(function(){
+        //    socket.end("我结束了","utf8");
+        //},3000);
+    });
+    server.listen({
+        port:8889
+    },function(){
+        var address=server.address();
+        console.log(" opened server on address %j ",address);
+    });
+
+    var a=1;
+}
+t1();
